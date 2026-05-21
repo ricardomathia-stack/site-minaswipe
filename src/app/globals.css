@@ -1,26 +1,150 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #0066ff;
+  --color-brand-600: #0052cc;
+  --color-brand-700: #003d99;
+  --color-brand-800: #1e3a8a;
+  --color-brand-900: #0a2540;
+
+  --color-eco-50: #ecfdf5;
+  --color-eco-100: #d1fae5;
+  --color-eco-400: #34d399;
+  --color-eco-500: #10b981;
+  --color-eco-600: #059669;
+  --color-eco-700: #047857;
+
+  --color-ink-900: #0a2540;
+  --color-ink-700: #1e293b;
+  --color-ink-500: #5a6b7b;
+  --color-ink-400: #94a3b8;
+  --color-ink-300: #cbd5e1;
+  --color-ink-200: #e2e8f0;
+  --color-ink-100: #f1f5f9;
+  --color-ink-50: #f8fafc;
+
+  --color-surface: #f7f9fc;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --shadow-soft: 0 1px 2px rgb(10 37 64 / 0.04), 0 8px 24px rgb(10 37 64 / 0.06);
+  --shadow-card: 0 1px 2px rgb(10 37 64 / 0.06), 0 12px 36px -8px rgb(10 37 64 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(10 37 64 / 0.06), 0 24px 56px -12px rgb(10 37 64 / 0.18);
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--color-ink-900);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01", "ss03";
+}
+
+::selection {
+  background: var(--color-brand-600);
+  color: white;
+}
+
+@layer utilities {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .gradient-mesh {
+    background-image:
+      radial-gradient(at 20% 0%, rgb(0 102 255 / 0.10) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgb(16 185 129 / 0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 60%, rgb(0 102 255 / 0.06) 0px, transparent 50%);
+  }
+
+  .gradient-brand {
+    background-image: linear-gradient(135deg, var(--color-brand-600) 0%, var(--color-brand-500) 45%, var(--color-eco-500) 100%);
+  }
+
+  .glass {
+    background: rgb(255 255 255 / 0.7);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+  }
+
+  .glass-dark {
+    background: rgb(10 37 64 / 0.55);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+  }
+
+  .ring-soft {
+    box-shadow:
+      inset 0 0 0 1px rgb(10 37 64 / 0.06),
+      0 1px 2px rgb(10 37 64 / 0.04);
+  }
+
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* Scroll reveal — small CSS-only fade-up triggered by IntersectionObserver */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .pulse-ring {
+    position: relative;
+  }
+  .pulse-ring::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    background: var(--color-eco-500);
+    opacity: 0.25;
+    animation: pulse-ring 2.4s ease-out infinite;
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 0.35; }
+    80% { transform: scale(1.4); opacity: 0; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
 }
