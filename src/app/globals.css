@@ -1,46 +1,60 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-200: #bfdbfe;
-  --color-brand-300: #93c5fd;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #0066ff;
-  --color-brand-600: #0052cc;
-  --color-brand-700: #003d99;
-  --color-brand-800: #1e3a8a;
-  --color-brand-900: #0a2540;
+  /* Navy — UI/UX Pro Max "Trust & Authority" palette */
+  --color-navy-50: #f1f5f9;
+  --color-navy-100: #e2e8f0;
+  --color-navy-200: #cbd5e1;
+  --color-navy-300: #94a3b8;
+  --color-navy-400: #64748b;
+  --color-navy-500: #475569;
+  --color-navy-600: #334155;
+  --color-navy-700: #1e293b;
+  --color-navy-800: #0f172a;
+  --color-navy-900: #020617;
 
-  --color-eco-50: #ecfdf5;
-  --color-eco-100: #d1fae5;
-  --color-eco-400: #34d399;
+  /* Corporate blue — CTA / accent */
+  --color-accent-50: #f0f9ff;
+  --color-accent-100: #e0f2fe;
+  --color-accent-200: #bae6fd;
+  --color-accent-300: #7dd3fc;
+  --color-accent-400: #38bdf8;
+  --color-accent-500: #0ea5e9;
+  --color-accent-600: #0369a1;
+  --color-accent-700: #075985;
+  --color-accent-800: #0c4a6e;
+  --color-accent-900: #082f49;
+
+  /* Sustainability (sparing use only — sustainability pillar / micro-accents) */
   --color-eco-500: #10b981;
   --color-eco-600: #059669;
   --color-eco-700: #047857;
 
-  --color-ink-900: #0a2540;
-  --color-ink-700: #1e293b;
-  --color-ink-500: #5a6b7b;
-  --color-ink-400: #94a3b8;
-  --color-ink-300: #cbd5e1;
-  --color-ink-200: #e2e8f0;
-  --color-ink-100: #f1f5f9;
+  /* Ink (text + neutrals) */
   --color-ink-50: #f8fafc;
+  --color-ink-100: #f1f5f9;
+  --color-ink-200: #e2e8f0;
+  --color-ink-300: #cbd5e1;
+  --color-ink-400: #94a3b8;
+  --color-ink-500: #64748b;
+  --color-ink-600: #475569;
+  --color-ink-700: #334155;
+  --color-ink-800: #1e293b;
+  --color-ink-900: #0f172a;
 
-  --color-surface: #f7f9fc;
+  --color-surface: #f8fafc;
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-sans: var(--font-open-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-poppins), var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-soft: 0 1px 2px rgb(10 37 64 / 0.04), 0 8px 24px rgb(10 37 64 / 0.06);
-  --shadow-card: 0 1px 2px rgb(10 37 64 / 0.06), 0 12px 36px -8px rgb(10 37 64 / 0.12);
-  --shadow-lift: 0 2px 4px rgb(10 37 64 / 0.06), 0 24px 56px -12px rgb(10 37 64 / 0.18);
+  --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.04), 0 6px 20px rgb(15 23 42 / 0.06);
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.06), 0 12px 36px -10px rgb(15 23 42 / 0.14);
+  --shadow-lift: 0 2px 4px rgb(15 23 42 / 0.06), 0 24px 56px -16px rgb(15 23 42 / 0.22);
 }
 
 :root {
   --background: #ffffff;
-  --foreground: var(--color-ink-900);
+  --foreground: var(--color-navy-800);
 }
 
 html {
@@ -54,11 +68,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  font-feature-settings: "cv11", "ss01", "ss03";
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
 }
 
 ::selection {
-  background: var(--color-brand-600);
+  background: var(--color-accent-600);
   color: white;
 }
 
@@ -67,33 +85,37 @@ body {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
   }
 
-  .gradient-mesh {
-    background-image:
-      radial-gradient(at 20% 0%, rgb(0 102 255 / 0.10) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgb(16 185 129 / 0.08) 0px, transparent 50%),
-      radial-gradient(at 50% 60%, rgb(0 102 255 / 0.06) 0px, transparent 50%);
+  .container-narrow {
+    @apply mx-auto w-full max-w-4xl px-5 sm:px-8;
   }
 
-  .gradient-brand {
-    background-image: linear-gradient(135deg, var(--color-brand-600) 0%, var(--color-brand-500) 45%, var(--color-eco-500) 100%);
+  .gradient-mesh-navy {
+    background-image:
+      radial-gradient(at 18% 0%, rgb(3 105 161 / 0.08) 0px, transparent 50%),
+      radial-gradient(at 82% 0%, rgb(15 23 42 / 0.05) 0px, transparent 50%),
+      radial-gradient(at 50% 60%, rgb(3 105 161 / 0.04) 0px, transparent 50%);
+  }
+
+  .gradient-cta {
+    background-image: linear-gradient(135deg, var(--color-navy-800) 0%, var(--color-accent-700) 100%);
   }
 
   .glass {
-    background: rgb(255 255 255 / 0.7);
-    backdrop-filter: saturate(160%) blur(14px);
-    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    background: rgb(255 255 255 / 0.72);
+    backdrop-filter: saturate(170%) blur(14px);
+    -webkit-backdrop-filter: saturate(170%) blur(14px);
   }
 
-  .glass-dark {
-    background: rgb(10 37 64 / 0.55);
-    backdrop-filter: saturate(160%) blur(14px);
-    -webkit-backdrop-filter: saturate(160%) blur(14px);
+  .glass-navy {
+    background: rgb(15 23 42 / 0.55);
+    backdrop-filter: saturate(170%) blur(14px);
+    -webkit-backdrop-filter: saturate(170%) blur(14px);
   }
 
   .ring-soft {
     box-shadow:
-      inset 0 0 0 1px rgb(10 37 64 / 0.06),
-      0 1px 2px rgb(10 37 64 / 0.04);
+      inset 0 0 0 1px rgb(15 23 42 / 0.06),
+      0 1px 2px rgb(15 23 42 / 0.04);
   }
 
   .grain {
@@ -104,12 +126,12 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.025;
+    opacity: 0.02;
     mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
-  /* Scroll reveal — small CSS-only fade-up triggered by IntersectionObserver */
+  /* Scroll reveal */
   .reveal {
     opacity: 0;
     transform: translateY(16px);
@@ -130,6 +152,7 @@ body {
     }
   }
 
+  /* Pulse ring (WhatsApp float) */
   .pulse-ring {
     position: relative;
   }
@@ -143,8 +166,16 @@ body {
     animation: pulse-ring 2.4s ease-out infinite;
   }
   @keyframes pulse-ring {
-    0% { transform: scale(0.8); opacity: 0.35; }
+    0% { transform: scale(0.85); opacity: 0.35; }
     80% { transform: scale(1.4); opacity: 0; }
     100% { transform: scale(1.4); opacity: 0; }
+  }
+
+  /* Stat number — subtle pulse on hover */
+  .stat-num {
+    transition: transform 250ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .stat-num:hover {
+    transform: translateY(-2px);
   }
 }

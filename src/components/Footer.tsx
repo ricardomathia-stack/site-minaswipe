@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Logo } from "./Logo";
 import {
   IconArrowRight,
@@ -8,44 +9,28 @@ import {
   IconWhatsApp,
 } from "./Icons";
 import { COMPANY, NAV_LINKS, whatsappUrl } from "@/lib/constants";
-
-const solutionsLinks = [
-  "Produtos de limpeza profissional",
-  "Higienização e sanitização",
-  "Equipamentos e acessórios",
-  "Neutralização de odores",
-  "Soluções para lavanderias",
-  "Consultoria técnica",
-];
-
-const segmentsLinks = [
-  "Frigoríficos",
-  "Indústrias de alimentos",
-  "Hospitais e clínicas",
-  "Hotéis e motéis",
-  "Restaurantes e delivery",
-  "Cozinhas industriais",
-  "Panificadoras",
-  "Lavanderias",
-];
+import { SOLUTIONS } from "@/lib/solutions";
+import { SEGMENTS } from "@/lib/segments";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-brand-900 text-white">
+    <footer className="relative overflow-hidden bg-navy-800 text-white">
       <div
         aria-hidden
-        className="absolute -right-32 top-0 h-72 w-72 rounded-full bg-brand-600/30 blur-3xl"
+        className="absolute -right-32 top-0 h-72 w-72 rounded-full bg-accent-600/30 blur-3xl"
       />
       <div
         aria-hidden
-        className="absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-eco-500/20 blur-3xl"
+        className="absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-eco-500/15 blur-3xl"
       />
       <div className="container-x relative py-16 md:py-20">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-4">
-            <Logo variant="light" />
+            <div className="rounded-xl bg-white/95 p-3 inline-block">
+              <Logo height={32} />
+            </div>
             <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-white/70">
               Soluções profissionais em higiene, limpeza e sanitização para
               empresas. Consultoria técnica, produtos de alta performance e
@@ -66,52 +51,52 @@ export function Footer() {
           <div className="lg:col-span-8">
             <div className="grid gap-10 sm:grid-cols-3">
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-white/90">
-                  Links rápidos
+                <h3 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white/90">
+                  Navegação
                 </h3>
                 <ul className="mt-5 space-y-2.5">
                   {NAV_LINKS.map((link) => (
                     <li key={link.href}>
-                      <a
+                      <Link
                         href={link.href}
                         className="text-[0.95rem] text-white/70 transition-colors hover:text-white"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-white/90">
+                <h3 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white/90">
                   Soluções
                 </h3>
                 <ul className="mt-5 space-y-2.5">
-                  {solutionsLinks.map((s) => (
-                    <li key={s}>
-                      <a
-                        href="#solucoes"
+                  {SOLUTIONS.map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={`/solucoes/${s.slug}`}
                         className="text-[0.95rem] text-white/70 transition-colors hover:text-white"
                       >
-                        {s}
-                      </a>
+                        {s.shortTitle}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-white/90">
+                <h3 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white/90">
                   Segmentos
                 </h3>
                 <ul className="mt-5 space-y-2.5">
-                  {segmentsLinks.map((s) => (
-                    <li key={s}>
-                      <a
-                        href="#segmentos"
+                  {SEGMENTS.map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={`/segmentos/${s.slug}`}
                         className="text-[0.95rem] text-white/70 transition-colors hover:text-white"
                       >
-                        {s}
-                      </a>
+                        {s.shortName}
+                      </Link>
                     </li>
                   ))}
                 </ul>

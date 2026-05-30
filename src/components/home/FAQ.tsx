@@ -1,5 +1,5 @@
-import { IconChevronDown } from "./Icons";
-import { Reveal } from "./Reveal";
+import { IconChevronDown } from "../Icons";
+import { Reveal } from "../Reveal";
 
 const faqs = [
   {
@@ -31,20 +31,16 @@ const faqs = [
 export function FAQ() {
   return (
     <section id="faq" className="relative bg-surface py-20 md:py-28">
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ink-200 to-transparent"
-      />
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <Reveal>
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-700">
                 Dúvidas frequentes
               </span>
             </Reveal>
             <Reveal delay={80}>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl lg:text-[2.65rem] lg:leading-[1.1]">
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-navy-800 md:text-4xl lg:text-[2.65rem] lg:leading-[1.1]">
                 Perguntas que costumam aparecer
               </h2>
             </Reveal>
@@ -60,13 +56,10 @@ export function FAQ() {
             <Reveal>
               <div className="divide-y divide-ink-200 overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-soft">
                 {faqs.map((f, i) => (
-                  <details
-                    key={i}
-                    className="group [&_summary::-webkit-details-marker]:hidden"
-                  >
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 text-base font-semibold text-ink-900 transition-colors hover:bg-ink-50 sm:text-lg">
+                  <details key={i} className="group [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 font-display text-base font-semibold text-navy-800 transition-colors hover:bg-ink-50 sm:text-lg">
                       {f.q}
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-700 transition-all group-open:rotate-180 group-open:border-brand-300 group-open:bg-brand-50 group-open:text-brand-700">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-700 transition-all group-open:rotate-180 group-open:border-accent-300 group-open:bg-accent-50 group-open:text-accent-700">
                         <IconChevronDown className="h-4 w-4" />
                       </span>
                     </summary>

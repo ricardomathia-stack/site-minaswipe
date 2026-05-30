@@ -1,5 +1,5 @@
-import { IconHeadset, IconBeaker, IconBolt, IconLeaf } from "./Icons";
-import { Reveal } from "./Reveal";
+import { IconBeaker, IconBolt, IconHeadset, IconLeaf } from "../Icons";
+import { Reveal } from "../Reveal";
 
 const pillars = [
   {
@@ -31,14 +31,14 @@ export function Authority() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-700">
                 Inteligência em higiene
               </span>
             </Reveal>
             <Reveal delay={80}>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink-900 md:text-4xl lg:text-[2.65rem] lg:leading-[1.1]">
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-navy-800 md:text-4xl lg:text-[2.65rem] lg:leading-[1.1]">
                 Mais do que produtos:{" "}
-                <span className="bg-gradient-to-br from-brand-700 to-eco-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-br from-navy-800 to-accent-700 bg-clip-text text-transparent">
                   inteligência em higiene profissional
                 </span>
               </h2>
@@ -51,7 +51,7 @@ export function Authority() {
               </p>
             </Reveal>
             <Reveal delay={240}>
-              <blockquote className="mt-8 border-l-2 border-eco-500 pl-5 text-base font-medium text-ink-700 md:text-lg">
+              <blockquote className="mt-8 border-l-2 border-eco-500 pl-5 font-display text-base font-medium text-ink-700 md:text-lg">
                 &ldquo;Limpeza profissional não é custo. É controle, segurança e
                 eficiência.&rdquo;
               </blockquote>
@@ -62,15 +62,15 @@ export function Authority() {
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
               {pillars.map((p, i) => (
                 <Reveal key={p.title} delay={i * 90}>
-                  <article className="group relative h-full overflow-hidden rounded-2xl border border-ink-200 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-brand-200 hover:shadow-card">
+                  <article className="group relative h-full overflow-hidden rounded-2xl border border-ink-200 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-accent-300 hover:shadow-card">
                     <div
                       aria-hidden
-                      className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-brand-50 opacity-0 transition-opacity group-hover:opacity-100"
+                      className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent-50 opacity-0 transition-opacity group-hover:opacity-100"
                     />
-                    <span className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-eco-500 text-white shadow-soft">
+                    <span className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-navy-800 to-accent-700 text-white shadow-soft">
                       <p.icon className="h-6 w-6" />
                     </span>
-                    <h3 className="relative mt-5 text-lg font-semibold text-ink-900">
+                    <h3 className="relative mt-5 font-display text-lg font-semibold text-navy-800">
                       {p.title}
                     </h3>
                     <p className="relative mt-2 text-[0.95rem] leading-relaxed text-ink-500">

@@ -16,7 +16,7 @@ export default function OpengraphImage() {
           justifyContent: "space-between",
           padding: 72,
           background:
-            "linear-gradient(135deg, #0A2540 0%, #003D99 45%, #0066FF 75%, #10B981 100%)",
+            "linear-gradient(135deg, #020617 0%, #0f172a 35%, #1e293b 60%, #0369a1 100%)",
           color: "white",
           fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
         }}
@@ -78,8 +78,7 @@ export default function OpengraphImage() {
               lineHeight: 1.3,
             }}
           >
-            Consultoria técnica, produtos de alta performance e soluções sob
-            medida para diversos segmentos.
+            Consultoria técnica, produtos de alta performance e soluções sob medida para diversos segmentos.
           </div>
         </div>
 

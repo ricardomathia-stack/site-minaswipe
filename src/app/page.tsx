@@ -1,37 +1,31 @@
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { Authority } from "@/components/Authority";
-import { About } from "@/components/About";
-import { Solutions } from "@/components/Solutions";
-import { Segments } from "@/components/Segments";
-import { Partners } from "@/components/Partners";
-import { Process } from "@/components/Process";
-import { Benefits } from "@/components/Benefits";
-import { MidCTA } from "@/components/MidCTA";
-import { Contact } from "@/components/Contact";
-import { FAQ } from "@/components/FAQ";
-import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { Hero } from "@/components/home/Hero";
+import { PersonaSelector } from "@/components/PersonaSelector";
+import { Authority } from "@/components/home/Authority";
+import { AboutTeaser } from "@/components/home/AboutTeaser";
+import { SolutionsTeaser } from "@/components/home/SolutionsTeaser";
+import { SegmentsTeaser } from "@/components/home/SegmentsTeaser";
+import { Process } from "@/components/home/Process";
+import { Benefits } from "@/components/home/Benefits";
+import { Partners } from "@/components/home/Partners";
+import { MidCTA } from "@/components/home/MidCTA";
+import { FAQ } from "@/components/home/FAQ";
+import { ContactTeaser } from "@/components/home/ContactTeaser";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      <Header />
-      <main className="flex-1">
-        <Hero />
-        <Authority />
-        <About />
-        <Solutions />
-        <Segments />
-        <Partners />
-        <Process />
-        <Benefits />
-        <MidCTA />
-        <Contact />
-        <FAQ />
-      </main>
-      <Footer />
-      <WhatsAppFloat />
+      <Hero />
+      <PersonaSelector />
+      <Authority />
+      <SolutionsTeaser />
+      <SegmentsTeaser />
+      <AboutTeaser />
+      <Process />
+      <Benefits />
+      <Partners />
+      <MidCTA />
+      <FAQ />
+      <ContactTeaser />
     </>
   );
 }
